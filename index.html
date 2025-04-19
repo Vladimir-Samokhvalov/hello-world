@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hello World</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -69,6 +70,15 @@
             font-size: 16px;
             color: #333;
         }
+        .calendar-container {
+            margin-top: 20px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .flatpickr-calendar {
+            font-family: Arial, sans-serif;
+        }
     </style>
 </head>
 <body>
@@ -84,7 +94,12 @@
     <div class="redirect-message">
         Вы перенаправляетесь в авторизованное приложение и будете довольны.
     </div>
+    <div class="calendar-container">
+        <input type="text" id="calendar" placeholder="Выберите дату">
+    </div>
 
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="https://npmcdn.com/flatpickr/dist/l10n/ru.js"></script>
     <script>
         // Загрузка данных из файла links.json
         fetch('links.json')
@@ -102,6 +117,14 @@
                 });
             })
             .catch(error => console.error('Ошибка при загрузке ссылок:', error));
+
+        // Инициализация календаря
+        flatpickr("#calendar", {
+            locale: "ru",
+            dateFormat: "d.m.Y",
+            inline: true,
+            defaultDate: "today"
+        });
     </script>
 </body>
 </html>
