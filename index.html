@@ -4,98 +4,39 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hello World</title>
+    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            margin-top: 50px;
-            background-color: #f9f9f9;
-            color: #333;
-        }
-        h1 {
-            font-size: 2.5em;
-            color: #4CAF50;
-        }
-        .author {
-            margin-top: 20px;
-            font-size: 16px;
-            color: #555;
-        }
-        .vibe-coding {
-            margin-top: 10px;
-            font-style: italic;
-            font-size: 14px;
-            color: #777;
-        }
-        .image-container {
-            margin-top: 30px;
-        }
-        .image-container img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-        .links-container {
-            margin-top: 30px;
-            text-align: left;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        .link-item {
-            margin-bottom: 15px;
-        }
-        .link-item a {
-            color: #007BFF;
-            text-decoration: none;
-            font-weight: bold;
-        }
-        .link-item a:hover {
-            text-decoration: underline;
-        }
-        .link-item p {
-            font-size: 14px;
-            color: #555;
-        }
-        .redirect-message {
-            margin-top: 30px;
-            padding: 20px;
-            background-color: #f0f0f0;
-            border-radius: 8px;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-            font-size: 16px;
-            color: #333;
-        }
-        .calendar-container {
-            margin-top: 20px;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
         .flatpickr-calendar {
             font-family: Arial, sans-serif;
         }
     </style>
 </head>
-<body>
-    <h1>Hello, World!</h1>
-    <p class="author">Эту страницу сделал Владимир Самохвалов</p>
-    <p class="vibe-coding">чтобы научиться Вайб-кодингу</p>
-    <div class="image-container">
-        <img src="https://raw.githubusercontent.com/Vladimir-Samokhvalov/hello-world/main/my-image.png" alt="Inspiring Image">
-    </div>
-    <div class="links-container" id="links-container">
-        <!-- Ссылки будут загружены сюда -->
-    </div>
-    <div class="redirect-message">
-        Вы перенаправляетесь в авторизованное приложение и будете довольны.
-    </div>
-    <div class="calendar-container">
-        <input type="text" id="calendar" placeholder="Выберите дату">
+<body class="bg-gray-50 text-gray-800">
+    <div class="max-w-4xl mx-auto px-4 py-12">
+        <h1 class="text-4xl font-bold text-green-600 mb-4">Hello, World!</h1>
+        <p class="text-lg text-gray-600 mb-1">Эту страницу сделал Владимир Самохвалов</p>
+        <p class="text-sm italic text-gray-500 mb-8">чтобы научиться Вайб-кодингу</p>
+        
+        <div class="my-8">
+            <img src="https://raw.githubusercontent.com/Vladimir-Samokhvalov/hello-world/main/my-image.png" 
+                 alt="Inspiring Image" 
+                 class="w-full rounded-lg shadow-lg">
+        </div>
+
+        <div id="links-container" class="space-y-4 mb-8">
+            <!-- Ссылки будут загружены сюда -->
+        </div>
+
+        <div class="bg-gray-100 p-6 rounded-lg mb-8">
+            <p class="text-gray-800">
+                Вы перенаправляетесь в авторизованное приложение и будете довольны.
+            </p>
+        </div>
+
+        <div class="mb-8">
+            <input type="text" id="calendar" placeholder="Выберите дату" class="w-full p-2 border rounded">
+        </div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
@@ -110,8 +51,8 @@
                     const linkItem = document.createElement('div');
                     linkItem.classList.add('link-item');
                     linkItem.innerHTML = `
-                        <a href="${link.url}" target="_blank">${link.url}</a>
-                        <p>${link.description}</p>
+                        <a href="${link.url}" target="_blank" class="text-blue-600 hover:text-blue-800 font-bold">${link.url}</a>
+                        <p class="text-sm text-gray-600">${link.description}</p>
                     `;
                     container.appendChild(linkItem);
                 });
